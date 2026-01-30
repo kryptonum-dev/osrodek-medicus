@@ -9,7 +9,6 @@ import Hero from "../components/sections/Hero"
 import { Seo } from "../global/Seo"
 import Faq from "../components/sections/Faq"
 import OurStaff from "../components/sections/OurStaff"
-import Newsletter from "../components/sections/Newsletter"
 
 const FamilyClinicPage = ({
   data: { page: {
@@ -65,7 +64,6 @@ const FamilyClinicPage = ({
       }} />
       <Ebook />
       <Faq data={faqSection} />
-      <Newsletter />
     </>
   )
 }

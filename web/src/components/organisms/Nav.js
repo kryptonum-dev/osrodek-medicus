@@ -3,7 +3,7 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import Button from "../atoms/Button";
 import Social from "../moleculas/Social";
-import { ChevronDown, External, Logo, LogoSurazu } from "../atoms/Icons";
+import { ChevronDown, External, Logo } from "../atoms/Icons";
 import { Clamp } from "../../utils/functions";
 
 const Nav = ({ location }) => {
@@ -69,7 +69,7 @@ const Nav = ({ location }) => {
             onClick={() => handleLink()}
             title='Strona główna'
           >
-            {location.pathname === '/filia-w-surazu' ? <LogoSurazu /> : <Logo />}
+            <Logo />
           </Link>
           <button
             id="nav-toggle"
@@ -130,9 +130,6 @@ const Nav = ({ location }) => {
             </li>
             <li>
               <Link to='/kontakt' onClick={() => handleLink()} title='Kontakt'>Kontakt</Link>
-            </li>
-            <li>
-              <Link to='/filia-w-surazu' onClick={() => handleLink()} title='Filia w Surażu'>Filia w Surażu</Link>
             </li>
             <Social as='li' />
             <li>

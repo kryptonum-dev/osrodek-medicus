@@ -13,26 +13,40 @@ const Social = ({ as }) => {
       }
     }
   `)
+
+  // Hide social links if no URLs are configured in Sanity CMS
+  const hasFacebook = global.facebook && global.facebook.trim() !== '';
+  const hasYoutube = global.youtube && global.youtube.trim() !== '';
+  
+  // Don't render anything if no social links are configured
+  if (!hasFacebook && !hasYoutube) {
+    return null;
+  }
+
   return (
     <Wrapper as={as} className="social">
-      <a
-        href={global.facebook}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Facebook Ośrodka Zdrowia w Turośni Kościelnej (otwiera się w nowej karcie)"
-        title="Facebook"
-      >
-        <Facebook />
-      </a>
-      <a
-        href={global.youtube}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Youtube Ośrodka Zdrowia w Turośni Kościelnej (otwiera się w nowej karcie)"
-        title="YouTube"
-      >
-        <Youtube />
-      </a>
+      {hasFacebook && (
+        <a
+          href={global.facebook}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Facebook Ośrodka Medicus (otwiera się w nowej karcie)"
+          title="Facebook"
+        >
+          <Facebook />
+        </a>
+      )}
+      {hasYoutube && (
+        <a
+          href={global.youtube}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Youtube Ośrodka Medicus (otwiera się w nowej karcie)"
+          title="YouTube"
+        >
+          <Youtube />
+        </a>
+      )}
     </Wrapper>
   );
 }

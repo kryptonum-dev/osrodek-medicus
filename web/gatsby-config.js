@@ -41,7 +41,8 @@ module.exports = {
       },
     },
     `gatsby-plugin-robots-txt`,
-    `gatsby-plugin-sitemap`
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-netlify` // Must be last in the array
   ],
   trailingSlash: "never"
 };

@@ -4,7 +4,7 @@
   "private": true,
   "description": "Osrodek Medicus - Medical Center Website (Monorepo)",
   "scripts": {
-    "dev": "npm run dev:web",
+    "dev": "concurrently --names \"web,studio\" --prefix-colors \"blue,magenta\" \"npm run dev:web\" \"npm run dev:studio\"",
     "dev:web": "cd web && npm run develop",
     "dev:studio": "cd studio && npm run dev",
     "build": "npm run build:web",
@@ -22,5 +22,8 @@
     "monorepo"
   ],
   "author": "Kryptonum",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
 }

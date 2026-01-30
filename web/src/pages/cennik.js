@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import { Seo } from "../global/Seo"
 import Hero from "../components/sections/Hero"
 import Faq from "../components/sections/Faq"
-import Newsletter from "../components/sections/Newsletter"
 import Ebook from "../components/sections/Ebook"
 import Pricing from "../components/sections/Pricing/Pricing"
 
@@ -36,7 +35,6 @@ const PricingPage = ({
       }} />
       <Faq data={faqSection} />
       <Ebook />
-      <Newsletter />
     </>
   )
 }

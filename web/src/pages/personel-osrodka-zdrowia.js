@@ -4,7 +4,6 @@ import Hero from "../components/sections/Hero"
 import { Seo } from "../global/Seo"
 import Ebook from "../components/sections/Ebook"
 import BenefitsSection from "../components/sections/BenefitsSection"
-import Newsletter from "../components/sections/Newsletter"
 import Staff from "../components/sections/Staff/Staff"
 
 const StaffPage = ({
@@ -39,7 +38,6 @@ const StaffPage = ({
         cta={services_Cta}
       />
       <Ebook />
-      <Newsletter />
     </>
   )
 }

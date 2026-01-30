@@ -1,5 +1,5 @@
 // Single Types
-import global, { global_Footer, global_Nav, global_Ebook, global_Newsletter, global_Seo } from './singleTypes/global'
+import global, { global_Footer, global_Nav, global_Ebook, global_Seo } from './singleTypes/global'
 import homepage from './singleTypes/homepage'
 import familyClinic from './singleTypes/familyClinic'
 import staffPage from './singleTypes/staffPage'
@@ -11,10 +11,9 @@ import pricing, { pricing_List } from './singleTypes/pricing'
 import preventionAndDiagnosis from './singleTypes/preventionAndDiagnosis'
 import where from './singleTypes/where'
 import regulations, { regulations_RulesList } from './singleTypes/regulations'
-import privacyPolicy from './singleTypes/privacyPolicy'
+import privacyPolicy from './singleTypes/privacy'
 import sitemap from './singleTypes/sitemap'
 import notFound from './singleTypes/notFound'
-import surazClinic from './singleTypes/surazClinic'
 
 export const singleTypes = [
   homepage,
@@ -30,8 +29,7 @@ export const singleTypes = [
   regulations,
   sitemap,
   privacyPolicy,
-  notFound,
-  surazClinic
+  notFound
 ]
 
 // Collection Types
@@ -62,7 +60,6 @@ export const schemaTypes = [
   global_Footer,
   global_Nav,
   global_Ebook,
-  global_Newsletter,
   global_Seo,
   ...singleTypes,
   ebook_Contents,

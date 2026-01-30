@@ -30,8 +30,7 @@ export default defineConfig({
   name: 'default',
   title: 'Ośrodek Zdrowia Medicus',
 
-  // TODO: Update projectId after creating new Sanity project
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'gurb517x',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'faohtp6y',
   dataset: process.env.SANITY_STUDIO_DATASET || 'production',
 
   plugins: [

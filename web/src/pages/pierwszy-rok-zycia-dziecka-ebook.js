@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import Hero from "../components/sections/Hero"
 import { Seo } from "../global/Seo"
 import Ebook from "../components/sections/Ebook"
-import Newsletter from "../components/sections/Newsletter"
 import Why from "../components/sections/Ebook/Why"
 import OurStaff from "../components/sections/OurStaff"
 import Contents from "../components/sections/Ebook/Contents"
@@ -43,7 +42,6 @@ const EbookPage = ({
       }} />
       <OurStaff data={{ heading: authors_Heading, list: authors_List }} />
       <Ebook isEbookPage={true} />
-      <Newsletter />
     </>
   )
 }

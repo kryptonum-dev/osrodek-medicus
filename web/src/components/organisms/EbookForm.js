@@ -2,7 +2,6 @@ import { Link } from "gatsby";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
-import { EBOOK_GROUPID } from "../../constants/data";
 import { emailRegex } from "../../constants/regex";
 import { Clamp } from "../../utils/functions";
 import Button from "../atoms/Button";
@@ -25,12 +24,12 @@ const EbookForm = ({ data, variant = 'light', isEbookPage }) => {
 
   const onSubmit = (data) => {
     setSentStatus({ sent: true });
-    fetch('/api/newsletter', {
+    fetch('/api/ebook', {
       method: 'POST',
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ groupId: EBOOK_GROUPID, ...data })
+      body: JSON.stringify(data)
     })
       .then(response => response.json())
       .then(response => {

@@ -19,20 +19,22 @@ const ListRenderer = ({ children }) => (
   <li><div>{children}</div></li>
 )
 
-const Markdown = ({ children, components, ...props }) => {
+const Markdown = ({ children, components, className, ...props }) => {
   return (
-    <ReactMarkdown
-      components={{
-        a: LinkRenderer,
-        li: ListRenderer,
-        ol: ({ children }) => <ol className="orderedList">{children}</ol>,
-        ul: ({ children }) => <ul className="unorderedList">{children}</ul>,
-        ...components
-      }}
-      {...props}
-    >
-      {children}
-    </ReactMarkdown>
+    <div className={className}>
+      <ReactMarkdown
+        components={{
+          a: LinkRenderer,
+          li: ListRenderer,
+          ol: ({ children }) => <ol className="orderedList">{children}</ol>,
+          ul: ({ children }) => <ul className="unorderedList">{children}</ul>,
+          ...components
+        }}
+        {...props}
+      >
+        {children}
+      </ReactMarkdown>
+    </div>
   );
 }
  

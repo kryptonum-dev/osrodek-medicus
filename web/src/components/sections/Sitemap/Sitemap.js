@@ -51,10 +51,6 @@ const sitemap = [
     url: '/kontakt'
   },
   {
-    title: 'Filia w Surażu',
-    url: '/filia-w-surazu'
-  },
-  {
     title: 'Zapisz się',
     url: '/osrodek-zdrowia-zapisy'
   },

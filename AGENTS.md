@@ -144,7 +144,6 @@ These represent individual pages or global settings:
 | `privacyPolicy` | Privacy policy page |
 | `sitemap` | Sitemap page |
 | `notFound` | 404 error page |
-| `surazClinic` | Branch clinic page (to be adapted for Medicus) |
 
 ### Collection Types (Multiple documents)
 | Schema | Description |

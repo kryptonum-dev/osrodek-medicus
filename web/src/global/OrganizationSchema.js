@@ -61,10 +61,8 @@ const OrganizationSchema = () => {
             }
           )),
         ],
-        "sameAs": [
-          "https://www.facebook.com/OsrodekTK",
-          "https://www.youtube.com/@osrodekTK"
-        ]
+        // TODO: Add "sameAs" array with social media URLs when Medicus creates accounts
+        // Example: "sameAs": ["https://www.facebook.com/OsrodekMedicus", "https://www.youtube.com/@osrodekMedicus"]
       })}
     </script>
   )

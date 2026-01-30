@@ -1,7 +1,6 @@
 import { graphql } from "gatsby"
 import * as React from "react"
 import CtaSection from "../components/sections/CtaSection"
-import Newsletter from "../components/sections/Newsletter"
 import Hero from "../components/sections/NotFound/Hero"
 import { Seo } from "../global/Seo"
 
@@ -21,7 +20,6 @@ const NotFoundPage = ({
         hero_Cta,
       }} />
       <CtaSection data={ctaSection} />
-      <Newsletter />
     </>
   )
 }

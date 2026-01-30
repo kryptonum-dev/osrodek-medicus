@@ -100,7 +100,7 @@ const ContactForm = () => {
       <Select
         label="Wybierz ośrodek"
         register={register('center', { required: true })}
-        options={['Ośrodek Zdrowia w Turośni Kościelnej', 'Ośrodek Zdrowia Filia w Surażu']}
+        options={['Ośrodek Zdrowia Medicus']}
         error="Ośrodek nie został wybrany"
         errors={errors}
       />

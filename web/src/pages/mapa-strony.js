@@ -2,7 +2,6 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import Hero from "../components/sections/Hero"
 import { Seo } from "../global/Seo"
-import Newsletter from "../components/sections/Newsletter"
 import Ebook from "../components/sections/Ebook"
 import Sitemap from "../components/sections/Sitemap/Sitemap"
 
@@ -31,7 +30,6 @@ const SitemapPage = ({
         sitemap_Paragraph,
       }} />
       <Ebook />
-      <Newsletter />
     </>
   )
 }

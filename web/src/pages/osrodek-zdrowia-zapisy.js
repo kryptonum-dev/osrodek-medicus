@@ -6,7 +6,6 @@ import Ebook from "../components/sections/Ebook"
 import Faq from "../components/sections/Faq"
 import CtaSection from "../components/sections/CtaSection"
 import BenefitsSection from "../components/sections/BenefitsSection"
-import Newsletter from "../components/sections/Newsletter"
 import Registration from "../components/sections/Registration"
 
 const RegistrationPage = ({
@@ -66,7 +65,6 @@ const RegistrationPage = ({
       <CtaSection data={ctaSection} firstIconOnRight={true} />
       <Faq data={faqSection} />
       <Ebook />
-      <Newsletter />
     </>
   )
 }

@@ -5,8 +5,6 @@ import { Logo, Mail, Tel } from "../atoms/Icons";
 import Button from "../atoms/Button";
 import { Clamp } from "../../utils/functions";
 import Social from "../moleculas/Social";
-import Markdown from "../../utils/Markdown";
-import { GatsbyImage } from "gatsby-plugin-image";
 
 const Footer = () => {
   const {
@@ -26,13 +24,6 @@ const Footer = () => {
             theme
             text
             href
-          }
-          legal_Text
-          legal_Images {
-            asset {
-              altText
-              gatsbyImageData(placeholder: BLURRED)
-            }
           }
         }
       }
@@ -86,21 +77,6 @@ const Footer = () => {
           </p>
         </div>
       </FooterWrapper>
-      <LeaglInfoWrapper className="max-width">
-        <Markdown className="legal-text">{footer.legal_Text}</Markdown>
-        <ul>
-          {footer.legal_Images.map((logo, i) => (
-            <li key={i}>
-              <GatsbyImage
-                image={logo.asset.gatsbyImageData}
-                alt={logo.asset.altText || ''}
-                className="img"
-                objectFit="contain"
-              />
-            </li>
-          ))}
-        </ul>
-      </LeaglInfoWrapper>
     </>
   );
 }
@@ -221,35 +197,6 @@ const FooterWrapper = styled.footer`
           height: 42px;
         }
       }
-    }
-  }
-`
-
-const LeaglInfoWrapper = styled.div`
-  color: var(--primary-500);
-  padding: 55px 0;
-  .legal-text {
-    max-width: 78rem;
-  }
-  p {
-    &:not(:last-child){
-      margin-bottom: 12px;
-    }
-  }
-  ul {
-    margin-top: ${Clamp(32, 48, 62, 'px')};
-    width: fit-content;
-    display: grid;
-    align-items: center;
-    grid-template-columns: auto auto auto auto;
-    @media (max-width: 699px){
-      width: 100%;
-      grid-template-columns: 1fr 1fr;
-    }
-    gap: 24px ${Clamp(24, 48, 72, 'px')};
-    list-style-type: none;
-    .img {
-      max-width: 160px;
     }
   }
 `

@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import { Seo } from "../global/Seo"
 import Hero from "../components/sections/Hero"
 import Faq from "../components/sections/Faq"
-import Newsletter from "../components/sections/Newsletter"
 import Ebook from "../components/sections/Ebook"
 import CtaSection from "../components/sections/CtaSection"
 import Contact from "../components/sections/PreventionAndDiagnosis/Contact"
@@ -59,7 +58,6 @@ const PreventionAndDiagnosisPage = ({
       <CtaSection data={ctaSection} />
       <Faq data={faqSection} />
       <Ebook />
-      <Newsletter />
     </>
   )
 }
