@@ -1,0 +1,36 @@
+{
+  "name": "osrodek-medicus-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Osrodek Medicus - Frontend (Gatsby)",
+  "author": "Bogumił",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@portabletext/react": "^6.0.2",
+    "babel-plugin-styled-components": "^2.1.4",
+    "gatsby": "^5.16.0",
+    "gatsby-plugin-image": "^3.16.0",
+    "gatsby-plugin-manifest": "^5.16.0",
+    "gatsby-plugin-robots-txt": "^1.8.0",
+    "gatsby-plugin-sharp": "^5.16.0",
+    "gatsby-plugin-sitemap": "^6.16.0",
+    "gatsby-plugin-styled-components": "^6.16.0",
+    "gatsby-source-sanity": "^7.9.2",
+    "gatsby-transformer-sharp": "^5.16.0",
+    "node-fetch": "^3.3.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.71.1",
+    "react-markdown": "^10.1.0",
+    "styled-components": "^6.3.8"
+  }
+}

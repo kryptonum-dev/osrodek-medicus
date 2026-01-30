@@ -1,9 +1,25 @@
+# Dependencies
 node_modules/
-.cache/
-public
+
+# Build outputs
+web/.cache/
+web/public/
+studio/dist/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE
 .DS_Store
 Thumbs.db
-.env
-package-lock.json
-# Local Netlify folder
-.netlify
+.idea/
+.vscode/
+
+# Netlify
+.netlify/
+
+# Lock files (optional - uncomment if you want to ignore)
+# package-lock.json
+# bun.lockb
