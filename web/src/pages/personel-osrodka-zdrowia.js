@@ -2,7 +2,6 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import Hero from "../components/sections/Hero"
 import { Seo } from "../global/Seo"
-import Ebook from "../components/sections/Ebook"
 import BenefitsSection from "../components/sections/BenefitsSection"
 import Staff from "../components/sections/Staff/Staff"
 
@@ -37,7 +36,6 @@ const StaffPage = ({
         list={services_List}
         cta={services_Cta}
       />
-      <Ebook />
     </>
   )
 }

@@ -19,10 +19,6 @@ const sitemap = [
     url: '/pytania'
   },
   {
-    title: 'Darmowy ebook',
-    url: '/pierwszy-rok-zycia-dziecka-ebook'
-  },
-  {
     title: 'Profilaktyka',
     url: '/profilaktyka-i-diagnostyka'
   },

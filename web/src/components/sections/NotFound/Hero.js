@@ -57,7 +57,7 @@ const Heart = () => (
     className="heart"
   >
     <path
-      fill='#0FE3AF'
+      fill='#7DD3C8'
       stroke='#fff'
       strokeLinecap='round'
       strokeLinejoin='round'

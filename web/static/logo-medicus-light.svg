@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205 62" fill="none">
+  <!-- Heart Symbol -->
+  <g class="heart">
+    <!-- Dark petrol blue pill (top-right) -->
+    <rect
+      width="54.729"
+      height="26.464"
+      x="14.196"
+      y="48.31"
+      fill="#1A3F4D"
+      rx="13.232"
+      transform="rotate(-60 14.196 48.31)"
+    />
+    <!-- Light teal pill (bottom-left) -->
+    <rect
+      width="54.729"
+      height="26.464"
+      x="27.364"
+      y="61.657"
+      fill="#7DD3C8"
+      rx="13.232"
+      transform="rotate(-120 27.364 61.657)"
+    />
+    <!-- Medium teal center overlap -->
+    <path
+      fill="#3FA99D"
+      d="M20.74 36.938c-3.667 6.337-1.484 14.443 4.874 18.106 6.36 3.664 14.486 1.496 18.153-4.84l.145-.251c2.103-3.91 2.192-8.778-.193-12.899L32.184 17.121 20.74 36.938z"
+    />
+  </g>
+  <!-- Text (light variant - white text for dark backgrounds) -->
+  <text
+    x="68"
+    y="24"
+    fill="#FFFFFF"
+    font-family="Manrope, sans-serif"
+    font-weight="700"
+    font-size="16"
+  >Ośrodek Zdrowia</text>
+  <text
+    x="68"
+    y="48"
+    fill="#FFFFFF"
+    font-family="Manrope, sans-serif"
+    font-weight="600"
+    font-size="20"
+  >Medicus</text>
+</svg>

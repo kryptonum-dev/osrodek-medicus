@@ -187,7 +187,7 @@ const Has = () => (
     fill='none'
     viewBox='0 0 104 104'
   >
-    <circle cx='52.484' cy='52.116' r='51.5' fill='#0FE3AF'></circle>
+    <circle cx='52.484' cy='52.116' r='51.5' fill='#7DD3C8'></circle>
     <path
       stroke='#fff'
       strokeLinecap='round'
@@ -206,7 +206,7 @@ const HasNot = () => (
     fill='none'
     viewBox='0 0 104 104'
   >
-    <circle cx='51.984' cy='52.337' r='51.5' fill='#4D77FF'></circle>
+    <circle cx='51.984' cy='52.337' r='51.5' fill='#1A3F4D'></circle>
     <path
       stroke='#fff'
       strokeLinecap='round'

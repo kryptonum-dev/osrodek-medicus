@@ -41,12 +41,6 @@ export default {
       group: 'footer',
     },
     {
-      name: 'ebook',
-      type: 'global_Ebook',
-      title: 'Zapisz się i pobierz ebook',
-      group: 'ebook',
-    },
-    {
       name: 'seo',
       type: 'global_Seo',
       title: 'Globalne SEO',
@@ -65,10 +59,6 @@ export default {
     {
       name: 'footer',
       title: 'Stopka',
-    },
-    {
-      name: 'ebook',
-      title: 'Zapisz się i pobierz ebook',
     },
     {
       name: 'info',
@@ -128,49 +118,6 @@ export const global_Nav = {
       name: 'workingHours',
       type: 'string',
       title: 'Godziny otwarcia',
-    },
-    {
-      name: 'questionnaire',
-      type: 'url',
-      title: 'Link do ankiety satysfakcji',
-    },
-  ]
-}
-
-export const global_Ebook = {
-  name: 'global_Ebook',
-  title: 'Zapisz się i pobierz ebook',
-  type: 'object',
-  fields: [
-    {
-      name: 'heading',
-      type: 'markdown',
-      title: 'Nagłówek',
-    },
-    {
-      name: 'subheading',
-      type: 'markdown',
-      title: 'Podnagłówek',
-    },
-    {
-      name: 'paragraph',
-      type: 'markdown',
-      title: 'Paragraf',
-    },
-    {
-      name: 'formCta',
-      type: 'string',
-      title: 'Tekst Przcisku Formularza',
-    },
-    {
-      name: 'cta',
-      type: 'cta',
-      title: 'Wezwanie do działania',
-    },
-    {
-      name: 'icon',
-      type: 'image',
-      title: 'Ikona',
     },
   ]
 }

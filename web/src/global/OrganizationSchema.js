@@ -18,18 +18,18 @@ const OrganizationSchema = () => {
       {JSON.stringify({
         "@context": "https://schema.org",
         "@type": "MedicalClinic",
-        "name": "Ośrodek Zdrowia w Turośni Kościelnej",
-        "url": "https://osrodektk.pl",
-        "telephone": "+48 85 650 52 79",
-        "email": "rejestracja@osrodektk.pl",
-        "logo": "https://osrodektk.pl/logo-osrodek-zdrowia-w-turosni-koscielnej.png",
-        "image": "https://osrodektk.pl/logo-osrodek-zdrowia-w-turosni-koscielnej.png",
-        "description": "Poradnia lekarza rodzinnego w Turośni Kościelnej. Opieka zdrowotna, diagnostyka oraz liczne programy profilaktyczne w ramach NFZ.",
+        "name": "Ośrodek Zdrowia Medicus",
+        "url": "https://osrodek-medicus.pl",
+        "telephone": "+48 85 745 21 52",
+        "email": "rejestracja@osrodek-medicus.pl",
+        "logo": "https://osrodek-medicus.pl/logo-osrodek-zdrowia-medicus.png",
+        "image": "https://osrodek-medicus.pl/logo-osrodek-zdrowia-medicus.png",
+        "description": "Poradnia lekarza rodzinnego w Białymstoku. Opieka zdrowotna, diagnostyka oraz liczne programy profilaktyczne w ramach NFZ.",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Białostocka 7",
-          "addressLocality": "Turośń Kościelna",
-          "postalCode": "18-106",
+          "streetAddress": "Świętego Jerzego 22",
+          "addressLocality": "Białystok",
+          "postalCode": "15-349",
           "addressCountry": "PL"
         },
         "OpeningHoursSpecification": {
@@ -47,8 +47,8 @@ const OrganizationSchema = () => {
         "contactPoint": [
           {
             "@type": "ContactPoint",
-            "telephone": "+48 85 650 52 79",
-            "email": "rejestracja@osrodektk.pl",
+            "telephone": "+48 85 745 21 52",
+            "email": "rejestracja@osrodek-medicus.pl",
             "contactType": "Rejestracja"
           },
         ],

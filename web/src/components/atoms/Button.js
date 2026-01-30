@@ -95,8 +95,8 @@ const StyledAnchor = styled.a`
       box-shadow: inset 0 0 0 3px;
       color: var(--neutral-100);
       &:hover {
-        color: var(--secondary-200);
-        border-color: var(--secondary-200);
+        color: var(--primary-200);
+        box-shadow: inset 0 0 0 3px var(--primary-200);
       }
     }
   }

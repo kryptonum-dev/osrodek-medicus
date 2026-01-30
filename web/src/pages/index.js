@@ -3,7 +3,6 @@ import * as React from "react"
 import BenefitsSection from "../components/sections/BenefitsSection"
 import CompanyInfo from "../components/sections/CompanyInfo"
 import CtaSection from "../components/sections/CtaSection"
-import Ebook from "../components/sections/Ebook"
 import Faq from "../components/sections/Faq"
 import Feautures from "../components/sections/Homepage/Feautures"
 import Hero from "../components/sections/Homepage/Hero"
@@ -73,7 +72,6 @@ const IndexPage = ({
         prevention_CtaTitle,
         prevention_Cta,
       }} />
-      <Ebook />
       <Faq data={faqSection} />
       <CompanyInfo {...CompanyInfoData} />
     </>

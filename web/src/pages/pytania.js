@@ -2,7 +2,6 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import Hero from "../components/sections/Hero"
 import { Seo } from "../global/Seo"
-import Ebook from "../components/sections/Ebook"
 import Faq from "../components/sections/Faq"
 
 const FaqPage = ({
@@ -24,7 +23,6 @@ const FaqPage = ({
         version="dark"
       />
       <Faq data={faqSection} />
-      <Ebook />
     </>
   )
 }

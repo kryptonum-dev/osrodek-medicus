@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import { Seo } from "../global/Seo"
 import Hero from "../components/sections/Hero"
 import Faq from "../components/sections/Faq"
-import Ebook from "../components/sections/Ebook"
 import CtaTiles from "../components/sections/CtaTiles"
 
 const WherePage = ({
@@ -28,7 +27,6 @@ const WherePage = ({
       />
       <CtaTiles {...CtaTilesData} />
       <Faq data={faqSection} />
-      <Ebook />
     </>
   )
 }

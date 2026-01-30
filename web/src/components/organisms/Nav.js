@@ -3,7 +3,7 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import Button from "../atoms/Button";
 import Social from "../moleculas/Social";
-import { ChevronDown, External, Logo } from "../atoms/Icons";
+import { ChevronDown, Logo } from "../atoms/Icons";
 import { Clamp } from "../../utils/functions";
 
 const Nav = ({ location }) => {
@@ -16,7 +16,6 @@ const Nav = ({ location }) => {
         email
         nav {
           workingHours
-          questionnaire
         }
       }
     }
@@ -45,7 +44,7 @@ const Nav = ({ location }) => {
         <div className="max-width">
           <p className="workingHours">{global.nav.workingHours}</p>
           <div className="contact">
-            <a href='https://lekarzebezkolejki.pl/osrodektk' target='_blank' rel="noreferrer" title='Umów się do lekarza'>
+            <a href='https://lekarzebezkolejki.pl/przychodnia-lekarza-rodzinnego-medicus-bialystok' target='_blank' rel="noreferrer" title='Umów się do lekarza'>
               <Calendar />
               <span>Umów się do lekarza <span className="sr-only">(otwiera się w nowej karcie)</span></span>
             </a>
@@ -98,22 +97,11 @@ const Nav = ({ location }) => {
                   <Link to='/pytania' onClick={() => handleLink()} title='Pytania i odpowiedzi'>Pytania i odpowiedzi</Link>
                 </li>
                 <li>
-                  <Link to='/pierwszy-rok-zycia-dziecka-ebook' onClick={() => handleLink()} title='Darmowy ebook'>Darmowy ebook</Link>
-                </li>
-                <li>
                   <Link to='/profilaktyka-i-diagnostyka' onClick={() => handleLink()} title='Profilaktyka'>Profilaktyka</Link>
                 </li>
                 <li>
                   <Link to='/gdzie-zrobic-badania' onClick={() => handleLink()} title='Gdzie zrobić badania?'>Gdzie zrobić badania?</Link>
                 </li>
-                {global.nav.questionnaire && (
-                  <li>
-                    <a href={global.nav.questionnaire} target="_blank" rel="noreferrer" onClick={() => handleLink()} title='Ankieta satysfakcji'>
-                      <span>Ankieta satysfakcji <span className="sr-only">(otwiera się w nowej karcie)</span></span>
-                      <External />
-                    </a>
-                  </li>
-                )}
                 <li>
                   <Link to='/osrodek-zdrowia-regulamin' onClick={() => handleLink()} title='Regulamin'>Regulamin</Link>
                 </li>
@@ -165,7 +153,7 @@ const WrapperNav = styled.nav`
     align-items: center;
     gap: ${Clamp(16, 16, 32, 'px')};
     font-size: ${Clamp(16, 8, 18)};
-    color: var(--primary-200);
+    color: var(--dark-500);
     a:not(.nav-cta) {
       &[aria-current="page"]{
         font-weight: 600;

@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import Hero from "../components/sections/Hero"
 import { Seo } from "../global/Seo"
 import Faq from "../components/sections/Faq"
-import Ebook from "../components/sections/Ebook"
 import Form from "../components/sections/Contact/Form"
 
 const ContactPage = ({
@@ -28,7 +27,6 @@ const ContactPage = ({
         }}
       />
       <Form heading={form_Heading} icon={form_Img} />
-      <Ebook />
       <Faq data={faqSection} />
     </>
   )

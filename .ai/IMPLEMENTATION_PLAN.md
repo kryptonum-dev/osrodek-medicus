@@ -51,6 +51,10 @@ Adam Boruch is opening a new medical center "Ośrodek Zdrowia Medicus" in Biały
   - ✅ Filia w Surażu page and references removed
   - ✅ Social media links hidden (auto-hide when empty in CMS)
   - ✅ Contact information updated in Sanity (email, phone, hours)
+- **Content Updates:**
+  - ✅ LekarzeBezKolejki booking links updated (Nav + Sanity registration page)
+  - ✅ Google Maps updated to Białystok location (ul. Świętego Jerzego 22)
+  - ✅ OrganizationSchema.js updated with Medicus data (phone, email, address)
 - **Netlify Deployment:**
   - ✅ Netlify site created and configured (`osrodek-medicus`)
   - ✅ Monorepo build settings configured (`netlify.toml`)
@@ -136,10 +140,10 @@ Adam Boruch is opening a new medical center "Ośrodek Zdrowia Medicus" in Biały
 | Task | Status | Notes |
 |------|--------|-------|
 | Replace contact data (Header, Footer, Contact page) | ✅ DONE | Email, phone, hours updated in Sanity |
-| Replace "ZnanyLekarz" link with "LekarzeBezKolejki" | ❌ TODO | New registration system |
-| Update Google Map embed (new address) | ❌ TODO | Białystok location |
+| Replace "ZnanyLekarz" link with "LekarzeBezKolejki" | ✅ DONE | Updated in Nav.js and Sanity (registration page) |
+| Update Google Map embed (new address) | ✅ DONE | Białystok location (53.131, 23.161) in Sanity |
 | Hide/remove staff photos (if no new ones) | ❌ TODO | Use placeholders or hide |
-| Update OrganizationSchema.js | ❌ TODO | New clinic structured data |
+| Update OrganizationSchema.js | ✅ DONE | Medicus address, phone, email updated |
 
 ---
 
@@ -399,9 +403,9 @@ netlify env:list     # List environment variables
 
 ### Priority 4 (Content & Network)
 22. [ ] Get client's photos/images for staff and clinic
-23. [ ] Update OrganizationSchema.js with final Medicus data
-24. [ ] Replace "ZnanyLekarz" with "LekarzeBezKolejki" links
-25. [ ] Update Google Map embed (Białystok address)
+23. [x] Update OrganizationSchema.js with final Medicus data
+24. [x] Replace "ZnanyLekarz" with "LekarzeBezKolejki" links
+25. [x] Update Google Map embed (Białystok address)
 26. [ ] Get new Google Analytics key for Medicus
 27. [ ] Create GlobalNetworkBar component
 28. [ ] Implement NetworkBar on TK and Alma sites
@@ -446,5 +450,5 @@ netlify env:list     # List environment variables
 
 ---
 
-*Last Updated: January 30, 2026 - 16:25 CET*  
-*Status: ETAP 1 Complete (Setup, Cleanup & Staging Deployment) - Moving to ETAP 2 (Branding)*
+*Last Updated: January 30, 2026 - 16:30 CET*  
+*Status: ETAP 1 & Content Updates Complete - Branding in Progress (ETAP 2)*

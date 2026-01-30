@@ -18,7 +18,7 @@ const CompanyInfo = ({ heading, subheading, list, map }) => {
         width='768'
         height='500'
         loading="lazy"
-        title="Położenie Ośrodka Zdrowia w Turośni Kościelnej na mapie"
+        title="Położenie Ośrodka Zdrowia Medicus w Białymstoku na mapie"
         className="map"
       ></iframe>
     </Wrapper>

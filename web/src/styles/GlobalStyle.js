@@ -9,24 +9,64 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   :root {
-    --neutral-100: #fff;
-    --neutral-200: #dfdfdf;
-    --primary: #4D77FF;
-    --primary-200: #095FBA;
-    --primary-300: #4D77FF;
-    --primary-400: #0152A8;
-    --primary-500: #00259C;
-    --secondary-200: #57EBC7;
-    --secondary-500: #0FE3AF;
-    --error: #FF0;
-    --dark-200: #566669;
-    --dark-300: #3E5053;
-    --dark-500: #0E2428;
+    /* 
+     * ═══════════════════════════════════════════════════════════════
+     * MEDICUS COLOR PALETTE - Deep Teal & Petrol Blue
+     * ═══════════════════════════════════════════════════════════════
+     * 
+     * Design context:
+     * - Gray concrete floors (cool, modern foundation)
+     * - Beech wood furniture (warm, natural accents)
+     * - White walls (clean, clinical)
+     * 
+     * Philosophy: "Bright but not garish" - professional, trustworthy,
+     * healthcare-appropriate colors with excellent readability.
+     * 
+     * Primary (Deep Teal): Medical, calming, professional
+     * Secondary (Petrol Blue): Sophisticated accent, trustworthy
+     * 
+     * WCAG AA compliant - all text colors meet 4.5:1 contrast ratio
+     * ═══════════════════════════════════════════════════════════════
+     */
 
+    /* ─────────────── Neutral Colors ─────────────── */
+    --neutral-100: #FFFFFF;           /* Pure white backgrounds */
+    --neutral-200: #F4F7F9;           /* Light gray-blue tint for sections */
+    --neutral-300: #E1E8ED;           /* Borders, dividers */
+    
+    /* ─────────────── Primary Colors - Deep Teal ─────────────── */
+    /* Main brand color - medical, trustworthy, calming */
+    --primary: #0E7E73;               /* Main teal (buttons, links) */
+    --primary-200: #7DD3C8;           /* Light teal (hover states, highlights) */
+    --primary-300: #3FA99D;           /* Medium teal */
+    --primary-400: #0E7E73;           /* Standard teal (same as --primary) */
+    --primary-500: #065F56;           /* Dark teal (emphasis, active states) */
+    
+    /* ─────────────── Secondary Colors - Petrol Blue ─────────────── */
+    /* Accent color - sophisticated, professional, contrasting */
+    --secondary-200: #5B8A9A;         /* Light petrol (subtle accents) */
+    --secondary-400: #2D5A6B;         /* Medium petrol */
+    --secondary-500: #1A3F4D;         /* Dark petrol (strong accents, HR lines) */
+    
+    /* ─────────────── Error State ─────────────── */
+    --error: #DC3545;                 /* Standard red for errors */
+    
+    /* ─────────────── Dark/Text Colors ─────────────── */
+    /* High contrast text colors for excellent readability */
+    --dark-200: #5A6D78;              /* Muted text, captions */
+    --dark-300: #2C4251;              /* Subheadings, secondary text */
+    --dark-500: #0D1F26;              /* Main body text - near black for max contrast */
+
+    /* ─────────────── Functional Assignments ─────────────── */
     --form-input: var(--neutral-100);
     --form-tick: var(--primary-500);
-    --form-link: var(--secondary-500);
-    --gradient: linear-gradient(90deg, #90F4E8, #2DD282);
+    --form-link: var(--primary-400);
+    
+    /* ─────────────── Gradient ─────────────── */
+    /* Deep teal to petrol blue - sophisticated medical gradient */
+    --gradient: linear-gradient(135deg, #3FA99D 0%, #1A3F4D 100%);
+    
+    /* Animation & Layout */
     --easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     --pageMargin: 40px;
     @media (max-width: 699px){

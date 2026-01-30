@@ -123,7 +123,7 @@ const ChevronDown = () => (
     viewBox='0 0 23 15'
   >
     <path
-      stroke='#4D77FF'
+      stroke='#0E7E73'
       strokeLinecap='round'
       strokeWidth='3.619'
       d='M2 2.163l9.5 9.5 9.5-9.5'

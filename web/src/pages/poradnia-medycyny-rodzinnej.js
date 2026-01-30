@@ -1,6 +1,5 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import Ebook from "../components/sections/Ebook"
 import Appointment from "../components/sections/FamilyClinic/Appointment"
 import Benefits from "../components/sections/FamilyClinic/Benefits"
 import Mission from "../components/sections/FamilyClinic/Mission"
@@ -62,7 +61,6 @@ const FamilyClinicPage = ({
         appointment_Cta,
         appointment_Img,
       }} />
-      <Ebook />
       <Faq data={faqSection} />
     </>
   )

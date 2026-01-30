@@ -1,12 +1,11 @@
 // Single Types
-import global, { global_Footer, global_Nav, global_Ebook, global_Seo } from './singleTypes/global'
+import global, { global_Footer, global_Nav, global_Seo } from './singleTypes/global'
 import homepage from './singleTypes/homepage'
 import familyClinic from './singleTypes/familyClinic'
 import staffPage from './singleTypes/staffPage'
 import contact from './singleTypes/contact'
 import registration from './singleTypes/registration'
 import faqPage from './singleTypes/faqPage'
-import ebook, { ebook_Contents } from './singleTypes/ebook'
 import pricing, { pricing_List } from './singleTypes/pricing'
 import preventionAndDiagnosis from './singleTypes/preventionAndDiagnosis'
 import where from './singleTypes/where'
@@ -22,7 +21,6 @@ export const singleTypes = [
   contact,
   registration,
   faqPage,
-  ebook,
   pricing,
   preventionAndDiagnosis,
   where,
@@ -59,10 +57,8 @@ export const schemaTypes = [
   global,
   global_Footer,
   global_Nav,
-  global_Ebook,
   global_Seo,
   ...singleTypes,
-  ebook_Contents,
   pricing_List,
   regulations_RulesList,
 
