@@ -37,7 +37,7 @@ const Wrapper = styled.section`
     width: 100%;
   }
   h2 {
-    color: var(--primary-300);
+    color: var(--primary-500);
   }
   .paragraph {
     margin: 24px 0 32px;

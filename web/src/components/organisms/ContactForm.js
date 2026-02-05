@@ -59,7 +59,7 @@ const ContactForm = () => {
           <div className="status">
             <h3>Dziękujemy za kontakt.</h3>
             <p>Odpowiemy najszybciej, jak to możliwe!</p>
-            <Button type="button" theme="secondary" onClick={(e) => handleSentAgain(e)}>Wypełnij ponownie</Button>
+            <Button type="button" theme="secondary" variant="light" onClick={(e) => handleSentAgain(e)}>Wypełnij ponownie</Button>
           </div>
         ) : (
           <div className="status status-error">
@@ -97,13 +97,17 @@ const ContactForm = () => {
         register={register('email', { required: true, pattern: emailRegex })}
         errors={errors}
       />
-      <Select
+      {/* Facility selection - commented out since there's only one Medicus facility
+          Uncomment when multiple facilities are added in the future */}
+      {/* <Select
         label="Wybierz ośrodek"
         register={register('center', { required: true })}
         options={['Ośrodek Zdrowia Medicus']}
         error="Ośrodek nie został wybrany"
         errors={errors}
-      />
+      /> */}
+      {/* Hardcoded center value for single facility */}
+      <input type="hidden" {...register('center')} defaultValue="Ośrodek Zdrowia Medicus" />
       <Select
         label="Wybierz temat"
         register={register('subject', { required: true })}
@@ -159,11 +163,16 @@ const Wrapper = styled.form`
       inset: 0 calc(var(--pageMargin) * -1);
     }
     padding: var(--pageMargin);
-    background-color: var(--secondary-500);
+    background-color: var(--primary-500);
+    color: var(--neutral-100);
     border-radius: 10px;
     z-index: 2;
+    h3 {
+      color: var(--neutral-100);
+    }
     &.status-error {
       background-color: var(--neutral-100);
+      color: var(--primary-500);
       h3 {
         display: flex;
         align-items: center;

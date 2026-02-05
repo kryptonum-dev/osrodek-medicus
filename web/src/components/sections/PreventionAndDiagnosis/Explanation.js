@@ -35,7 +35,7 @@ const Wrapper = styled.section`
     margin-left: 0;
   }
   h2 {
-    color: var(--primary-300);
+    color: var(--primary-500);
   }
   .paragraph {
     font-size: ${Clamp(16, 18, 20)};

@@ -10,7 +10,7 @@ const YoutubeEmbed = ({ id, alt, ...props }) => {
         src={`https://www.youtube.com/embed/${id}?rel=0&fs=1&disablekb=1`}
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        title={alt || 'Film z serwisu YouTube z kanału Ośrodka Zdrowia w Turośni Kościelnej'}
+        title={alt || 'Film z serwisu YouTube z kanału Ośrodka Zdrowia Medicus'}
         loading='lazy'
       />
     </Wrapper>

@@ -27,7 +27,7 @@ const Rules = ({
               <div className="extended">
                 <div className="extened-wrapper">
                   {item.grid.map((item, i) => (
-                    <div className="item" key={i}>
+                    <div className="item dark" key={i}>
                       <Markdown className='title'>{item.title}</Markdown>
                       <hr />
                       <Markdown className='description'>{item.description}</Markdown>

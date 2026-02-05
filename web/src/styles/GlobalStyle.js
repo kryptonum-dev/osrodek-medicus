@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     /* 
      * ═══════════════════════════════════════════════════════════════
-     * MEDICUS COLOR PALETTE - Deep Teal & Petrol Blue
+     * MEDICUS COLOR PALETTE - Warm Teal & Vibrant Mint
      * ═══════════════════════════════════════════════════════════════
      * 
      * Design context:
@@ -19,13 +19,14 @@ const GlobalStyle = createGlobalStyle`
      * - Beech wood furniture (warm, natural accents)
      * - White walls (clean, clinical)
      * 
-     * Philosophy: "Bright but not garish" - professional, trustworthy,
-     * healthcare-appropriate colors with excellent readability.
+     * Philosophy: "Jaskrawy ale nie krzykliwy" - vibrant yet professional
+     * Colors that energize without overwhelming, perfect for healthcare.
      * 
-     * Primary (Deep Teal): Medical, calming, professional
-     * Secondary (Petrol Blue): Sophisticated accent, trustworthy
+     * Primary (Warm Teal): Professional, warm, trustworthy
+     * Accent (Vibrant Mint): Energetic, fresh, optimistic
      * 
      * WCAG AA compliant - all text colors meet 4.5:1 contrast ratio
+     * High contrast between dark backgrounds and vibrant accents
      * ═══════════════════════════════════════════════════════════════
      */
 
@@ -34,19 +35,25 @@ const GlobalStyle = createGlobalStyle`
     --neutral-200: #F4F7F9;           /* Light gray-blue tint for sections */
     --neutral-300: #E1E8ED;           /* Borders, dividers */
     
-    /* ─────────────── Primary Colors - Deep Teal ─────────────── */
-    /* Main brand color - medical, trustworthy, calming */
-    --primary: #0E7E73;               /* Main teal (buttons, links) */
-    --primary-200: #7DD3C8;           /* Light teal (hover states, highlights) */
-    --primary-300: #3FA99D;           /* Medium teal */
-    --primary-400: #0E7E73;           /* Standard teal (same as --primary) */
-    --primary-500: #065F56;           /* Dark teal (emphasis, active states) */
+    /* ─────────────── Primary Colors - Warm Teal ─────────────── */
+    /* Main brand color - professional, warm, approachable */
+    --primary: #28A090;               /* Main teal (buttons, links) */
+    --primary-200: #7FFFDA;           /* Very light mint (hover backgrounds) */
+    --primary-300: #4DCCB8;           /* Medium teal-mint */
+    --primary-400: #28A090;           /* Standard teal (same as --primary) */
+    --primary-500: #1A7A6E;           /* Dark warm teal (backgrounds, emphasis) */
     
-    /* ─────────────── Secondary Colors - Petrol Blue ─────────────── */
-    /* Accent color - sophisticated, professional, contrasting */
+    /* ─────────────── Accent Colors - Vibrant Mint ─────────────── */
+    /* Accent color - energetic, vibrant, the "jaskrawość" factor */
+    --accent: #00E5A8;                /* Vibrant mint (hero curves, highlights) */
+    --accent-light: #5CEBB5;          /* Light vibrant mint (secondary highlights) */
+    --accent-medium: #2EE6B8;         /* Medium vibrant mint (gradients) */
+    
+    /* ─────────────── Secondary Colors - Deep Teal ─────────────── */
+    /* Supporting colors for contrast and depth */
     --secondary-200: #5B8A9A;         /* Light petrol (subtle accents) */
-    --secondary-400: #2D5A6B;         /* Medium petrol */
-    --secondary-500: #1A3F4D;         /* Dark petrol (strong accents, HR lines) */
+    --secondary-400: #287367;         /* Deep teal (strong contrast) */
+    --secondary-500: #1A5A52;         /* Very dark teal (HR lines, borders) */
     
     /* ─────────────── Error State ─────────────── */
     --error: #DC3545;                 /* Standard red for errors */
@@ -55,16 +62,17 @@ const GlobalStyle = createGlobalStyle`
     /* High contrast text colors for excellent readability */
     --dark-200: #5A6D78;              /* Muted text, captions */
     --dark-300: #2C4251;              /* Subheadings, secondary text */
-    --dark-500: #0D1F26;              /* Main body text - near black for max contrast */
+    --dark-500: #0D2B28;              /* Main body text - near black with teal tint */
 
     /* ─────────────── Functional Assignments ─────────────── */
     --form-input: var(--neutral-100);
     --form-tick: var(--primary-500);
     --form-link: var(--primary-400);
     
-    /* ─────────────── Gradient ─────────────── */
-    /* Deep teal to petrol blue - sophisticated medical gradient */
-    --gradient: linear-gradient(135deg, #3FA99D 0%, #1A3F4D 100%);
+    /* ─────────────── Gradients ─────────────── */
+    /* Vibrant mint gradient - energetic and eye-catching */
+    --gradient: linear-gradient(135deg, #00E5A8 0%, #2EE6B8 50%, #5CEBB5 100%);
+    --gradient-teal: linear-gradient(135deg, #28A090 0%, #1A7A6E 100%);
     
     /* Animation & Layout */
     --easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -156,6 +164,11 @@ const GlobalStyle = createGlobalStyle`
     background-color: var(--secondary-500);
     border: none;
     margin: ${Clamp(24, 24, 48, 'px')} 0;
+  }
+  /* Bright HR lines on dark backgrounds for better contrast */
+  section.dark hr,
+  .dark hr {
+    background-color: var(--primary-200) !important;
   }
   h1 {
     font-size: ${Clamp(32, 36, 82)};

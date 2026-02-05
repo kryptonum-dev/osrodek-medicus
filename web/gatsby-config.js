@@ -7,8 +7,8 @@ const previewEnabled = (process.env.GATSBY_IS_PREVIEW || "false").toLowerCase() 
 
 module.exports = {
   siteMetadata: {
-    title: `osrodek-tk`,
-    siteUrl: `https://osrodektk.pl`
+    title: `osrodek-medicus`,
+    siteUrl: `https://osrodek-medicus.pl`
   },
   plugins: [
     {
@@ -30,14 +30,14 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `Ośrodek zdrowia w Turośni Kościelnej`,
-        short_name: `Ośrodek Zdrowia`,
+        name: `Ośrodek Zdrowia Medicus`,
+        short_name: `Medicus`,
         lang: `pl`,
         display: `standalone`,
         icon: `src/resources/images/logo.webp`,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `#00259C`,
+        theme_color: `#1A7A6E`,
       },
     },
     `gatsby-plugin-robots-txt`,

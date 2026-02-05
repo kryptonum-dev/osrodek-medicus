@@ -72,7 +72,7 @@ const Wrapper = styled.section`
     max-width: 768px;
     margin-bottom: ${Clamp(48, 64, 82, 'px')};
     h2 {
-      color: var(--primary-300);
+      color: var(--primary-500);
       margin-bottom: ${Clamp(16, 24, 32, 'px')};
     }
     .paragraph {
@@ -109,7 +109,7 @@ const Wrapper = styled.section`
       }
     }
     h3 {
-      color: var(--primary-300);
+      color: var(--primary-500);
       font-size: ${Clamp(32, 32, 48)};
     }
     .subheading {

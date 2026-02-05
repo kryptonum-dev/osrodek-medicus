@@ -51,6 +51,7 @@ import titleAndDescription from './components/titleAndDescription'
 import YoutubeEmbed from './components/YoutubeEmbed'
 import CompanyInfo from './components/CompanyInfo'
 import CtaTiles, { CtaTiles_Item } from './components/CtaTiles'
+import networkClinic from './components/networkClinic'
 
 export const schemaTypes = [
   // Single Types
@@ -78,4 +79,5 @@ export const schemaTypes = [
   CompanyInfo,
   CtaTiles,
   CtaTiles_Item,
+  networkClinic,
 ]

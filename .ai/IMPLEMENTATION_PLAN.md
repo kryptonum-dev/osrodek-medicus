@@ -63,15 +63,26 @@ Adam Boruch is opening a new medical center "Ośrodek Zdrowia Medicus" in Biały
   - ✅ Successful test deployment to staging
   - ✅ Fixed Sanity token issues in environment variables
 
-### 🔄 IN PROGRESS (ETAP 2 - Branding)
-- Ready to update colors, logo, and visual identity
+### ✅ COMPLETED (ETAP 2 - Branding)
+- ✅ Color palette updated (Turquoise/Teal theme)
+- ✅ Logo replaced with Medicus branding
+- ✅ Favicon updated
+- ✅ `gatsby-config.js` manifest updated
+- ✅ OrganizationSchema.js updated with Medicus data
+- ✅ Icon colors updated to new palette
 
-### ⏰ NEXT UP (Priority 2 - Branding)
-1. Update color palette (Turquoise or Lime)
-2. Replace logo with Medicus branding
-3. Replace favicon
-4. Update `gatsby-config.js` manifest (name, theme color)
-5. Update OrganizationSchema.js with Medicus data
+### 🔄 IN PROGRESS (ETAP 3 - Network Integration - Medicus Only)
+- ✅ Global Network Bar created and integrated (top utility bar)
+- ✅ Footer "Nasze Placówki" section implemented with CMS
+- ✅ Network clinics schema created and connected to Sanity
+- ❌ Recruitment/Career page (remaining task)
+
+### ⏰ NEXT UP (ETAP 3 - Other Repos & Final Features)
+1. Create Recruitment/Career page for Medicus
+2. Implement Global Network Bar in Ośrodek TK (Gatsby)
+3. Implement Global Network Bar in Alma-Med (Next.js)
+4. Update footers in TK and Alma-Med with "Nasze Placówki"
+5. Link recruitment page across all three sites
 
 ### 🎉 RECENTLY COMPLETED
 - ✅ **Netlify Staging Deployment** - Site is live at https://osrodek-medicus.netlify.app
@@ -150,23 +161,26 @@ Adam Boruch is opening a new medical center "Ośrodek Zdrowia Medicus" in Biały
 ### ETAP 3: NETWORK INTEGRATION (THE FUSION)
 *Goal: User sees unified network of 3 clinics*
 
-#### Global Top Bar
+#### Global Top Bar (Network Bar)
 | Task | Status | Notes |
 |------|--------|-------|
-| Create `GlobalNetworkBar` component | ❌ TODO | Links: TK \| Alma \| Medicus |
-| Implement in Medicus (Gatsby) | ❌ TODO | Add to Layout |
+| Create network links schema in Sanity | ✅ DONE | `networkClinic` component in global schema |
+| Implement in Medicus (Gatsby) - Top Bar | ✅ DONE | Integrated into utility bar, CMS-managed |
+| Implement in Medicus (Gatsby) - Footer | ✅ DONE | Right column with logos and contact info |
 | Implement in Ośrodek TK (Gatsby) | ❌ TODO | Separate repo update |
 | Implement in Alma-Med (Next.js) | ❌ TODO | Different styling approach |
 
 #### Footer Integration
 | Task | Status | Notes |
 |------|--------|-------|
-| Update "Nasze Placówki" section in footers | ❌ TODO | All 3 sites |
+| Update "Nasze Placówki" section - Medicus | ✅ DONE | CMS-managed, responsive, shows 3 clinics |
+| Update "Nasze Placówki" section - TK | ❌ TODO | Apply to TK repo |
+| Update "Nasze Placówki" section - Alma | ❌ TODO | Apply to Alma repo |
 
 #### Career/Cooperation Module
 | Task | Status | Notes |
 |------|--------|-------|
-| Create simple recruitment page/section | ❌ TODO | Text page |
+| Create simple recruitment page/section | ❌ TODO | Text page for all clinics |
 | Link in Menu/Footer on all sites | ❌ TODO | All 3 sites |
 
 ---
@@ -388,11 +402,12 @@ netlify env:list     # List environment variables
 4. [x] Hide social media links (auto-hide when empty)
 5. [x] Update contact information in Sanity (email, phone, hours)
 
-### Priority 2 (Branding - Current)
-6. [ ] Update color palette in GlobalStyle.js (Turquoise or Lime)
-7. [ ] Replace logo with Medicus branding
-8. [ ] Replace favicon
-9. [ ] Update `gatsby-config.js` manifest
+### Priority 2 (Branding) - ✅ COMPLETED
+6. [x] Update color palette in GlobalStyle.js (Turquoise/Teal)
+7. [x] Replace logo with Medicus branding
+8. [x] Replace favicon
+9. [x] Update `gatsby-config.js` manifest
+10. [x] Update icon colors to new palette
 
 ### Priority 3 (Staging Deployment) - ✅ COMPLETED
 17. [x] Set up Netlify project
@@ -401,16 +416,29 @@ netlify env:list     # List environment variables
 20. [x] Deploy to Netlify staging domain
 21. [x] Fix token issues and test build
 
-### Priority 4 (Content & Network)
-22. [ ] Get client's photos/images for staff and clinic
-23. [x] Update OrganizationSchema.js with final Medicus data
-24. [x] Replace "ZnanyLekarz" with "LekarzeBezKolejki" links
-25. [x] Update Google Map embed (Białystok address)
-26. [ ] Get new Google Analytics key for Medicus
-27. [ ] Create GlobalNetworkBar component
-28. [ ] Implement NetworkBar on TK and Alma sites
-29. [ ] Client review and approval on staging domain
-30. [ ] Final content updates from client feedback
+### Priority 4 (Network Integration - Medicus) - ✅ MOSTLY COMPLETE
+22. [x] Create `networkClinic` schema component
+23. [x] Add network clinics to global Sanity schema
+24. [x] Implement Global Network Bar in top utility bar (Medicus)
+25. [x] Implement "Nasze Placówki" in footer (Medicus)
+26. [x] Connect both Nav and Footer to Sanity CMS
+27. [x] Add current site detection and disabled state styling
+28. [ ] Create Recruitment/Career page (remaining)
+
+### Priority 5 (Content & Client Assets)
+29. [ ] Get client's photos/images for staff and clinic
+30. [x] Update OrganizationSchema.js with final Medicus data
+31. [x] Replace "ZnanyLekarz" with "LekarzeBezKolejki" links
+32. [x] Update Google Map embed (Białystok address)
+33. [ ] Get new Google Analytics key for Medicus (awaiting client decision)
+34. [ ] Client review and approval on staging domain
+35. [ ] Final content updates from client feedback
+
+### Priority 6 (Network Integration - Other Repos)
+36. [ ] Implement NetworkBar on Ośrodek TK (Gatsby)
+37. [ ] Implement NetworkBar on Alma-Med (Next.js)
+38. [ ] Update footers on TK and Alma-Med
+39. [ ] Link recruitment page across all sites
 
 ### Priority 5 (Production Launch - FINAL STEP)
 31. [ ] Verify all client content is final and approved
@@ -450,5 +478,5 @@ netlify env:list     # List environment variables
 
 ---
 
-*Last Updated: January 30, 2026 - 16:30 CET*  
-*Status: ETAP 1 & Content Updates Complete - Branding in Progress (ETAP 2)*
+*Last Updated: February 5, 2026 - 11:30 CET*  
+*Status: ETAP 1 & 2 Complete - Network Integration (Medicus) Complete - Recruitment Page Remaining*

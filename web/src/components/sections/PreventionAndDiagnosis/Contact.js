@@ -41,7 +41,7 @@ const Wrapper = styled.section`
   gap: 32px 48px;
   .copy {
     h2 {
-      color: var(--primary-300);
+      color: var(--primary-500);
     }
     .cta-wrapper {
       display: flex;

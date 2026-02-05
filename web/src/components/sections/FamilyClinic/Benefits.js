@@ -8,7 +8,7 @@ const Benefits = ({ data }) => {
   return (
     <Wrapper className="max-width">
       {data.map((benefit, i) => (
-        <div key={i} className="item">
+        <div key={i} className="item dark">
           <div className="icon">
             <GatsbyImage
               image={benefit.img.asset.gatsbyImageData}

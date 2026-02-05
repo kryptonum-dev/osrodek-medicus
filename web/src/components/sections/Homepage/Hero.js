@@ -16,7 +16,7 @@ const Hero = ({
   }
 }) => {
   return (
-    <Wrapper>
+    <Wrapper className="dark">
       <div className="max-width">
         <header>
           <Heading className="heading">{`${hero_Heading} *${removeMarkdown(hero_Subheading)}*`}</Heading>

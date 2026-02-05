@@ -14,7 +14,7 @@ const Office = ({
   }
 }) => {
   return (
-    <Wrapper>
+    <Wrapper className="dark">
       <div className="max-width">
         <Heading type="h2">{office_Heading}</Heading>
         <hr />
@@ -23,7 +23,7 @@ const Office = ({
           width='768'
           height='500'
           loading="lazy"
-          title="Położenie Ośrodka Zdrowia w Turośni Kościelnej na mapie"
+          title="Położenie Ośrodka Zdrowia Medicus na mapie"
           className="map"
         ></iframe>
         <div className="cta-wrapper">

@@ -46,6 +46,15 @@ export default {
       title: 'Globalne SEO',
       group: 'seo',
     },
+    {
+      name: 'networkClinics',
+      type: 'array',
+      title: 'Nasze Placówki (Sieć)',
+      description: 'Lista wszystkich placówek w sieci (Medicus, Ośrodek TK, Alma-Med) - używana w nawigacji i stopce',
+      of: [{ type: 'networkClinic' }],
+      validation: Rule => Rule.max(5),
+      group: 'general',
+    },
   ],
   groups: [
     {
@@ -90,21 +99,6 @@ export const global_Footer = {
       name: 'cta',
       type: 'cta',
       title: 'Wezwanie do działania',
-    },
-    {
-      name: 'legal_Text',
-      type: 'markdown',
-      title: 'Fundusze Europejski Informacje',
-    },
-    {
-      name: 'legal_Images',
-      type: 'array',
-      of: [
-        {
-          type: 'image'
-        }
-      ],
-      title: 'Fundusze Europejski Loga',
     },
   ]
 }

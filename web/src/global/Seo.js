@@ -27,7 +27,7 @@ export const Seo = ({ title, description, url, children, breadcrumbs, faqSchema 
   const domain = site.siteMetadata.siteUrl;
 
   const seo = {
-    title: title || 'Ośrodek zdrowia w Turośni Kościelnej',
+    title: title || 'Ośrodek Zdrowia Medicus',
     description: description || '',
     url: url || '',
   }

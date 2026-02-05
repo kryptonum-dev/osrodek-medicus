@@ -37,7 +37,7 @@ export default async function handler(req, res) {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: `Ośrodek Zdrowia w Turośni Koscielnej <biuro@send.osrodektk.pl>`,
+        from: `Ośrodek Zdrowia Medicus <rejestracja@osrodek-medicus.pl>`,
         to: 'rejestracja@osrodektk.pl',
         reply_to: email,
         subject: `Formularz kontaktowy - ${name} przesyła wiadomość`,

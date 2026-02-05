@@ -8,7 +8,7 @@ import Heading from "../atoms/Heading";
 
 const CtaSection = ({ data, firstIconOnRight=false }) => {
   return (
-    <Wrapper className={firstIconOnRight ? 'firstIconOnRight' : ''}>
+    <Wrapper className={`dark ${firstIconOnRight ? 'firstIconOnRight' : ''}`}>
       <div className="max-width">
         <Heading type="h2" className="heading">{data.heading}</Heading>
         <hr />

@@ -26,56 +26,124 @@ const Footer = () => {
             href
           }
         }
+        networkClinics {
+          name
+          city
+          address
+          phone
+          email
+          url
+          logo {
+            asset {
+              url
+            }
+          }
+          isActive
+        }
       }
     }
   `)
+
+  // Detect current site
+  const [currentHostname, setCurrentHostname] = React.useState('')
+  
+  React.useEffect(() => {
+    setCurrentHostname(window.location.hostname)
+  }, [])
+
+  const isCurrentSite = (clinicUrl) => {
+    try {
+      const url = new URL(clinicUrl)
+      return currentHostname.includes(url.hostname) || url.hostname.includes(currentHostname)
+    } catch {
+      return false
+    }
+  }
 
   return (
     <>
       <FooterWrapper>
         <Shape1 className="shape1" />
         <Shape2 className="shape2" />
-        <div className="max-width">
-          <div className="column">
-            <Link to="/" aria-label="Strona główna" className="logo">
-              <Logo variant="light" />
-            </Link>
-            <div className="contact">
-              <a href={`tel:${global.tel.replace(/\s/g, '')}`}>
-                <div className="icon">
-                  <Tel />
+        <div className="max-width footer-grid">
+              <div className="column">
+                <Link to="/" aria-label="Strona główna" className="logo">
+                  <Logo variant="light" />
+                </Link>
+                <div className="contact">
+                  <a href={`tel:${global.tel.replace(/\s/g, '')}`}>
+                    <div className="icon">
+                      <Tel />
+                    </div>
+                    <span>{global.tel}</span>
+                  </a>
+                  <a href={`mailto:${global.email}`}>
+                    <div className="icon">
+                      <Mail />
+                    </div>
+                    <span>{global.email}</span>
+                  </a>
                 </div>
-                <span>{global.tel}</span>
-              </a>
-              <a href={`mailto:${global.email}`}>
-                <div className="icon">
-                  <Mail />
+                <Social as="div" />
+              </div>
+              <div className="text">
+                <h3>{footer.heading}</h3>
+                <p>{footer.paragraph}</p>
+              </div>
+              <Button variant="light" theme={footer.cta.theme} to={footer.cta.href}>{footer.cta.text}</Button>
+              {global.networkClinics && global.networkClinics.length > 0 && (
+              <div className="network-clinics">
+                <h4 className="network-heading">Nasze Placówki</h4>
+                <div className="network-grid">
+                  {global.networkClinics
+                    .filter(clinic => clinic.isActive)
+                    .map((clinic, index) => {
+                      const isCurrent = isCurrentSite(clinic.url)
+                      const CardTag = isCurrent ? 'div' : 'a'
+                      
+                      return (
+                        <CardTag 
+                          key={index}
+                          href={isCurrent ? undefined : clinic.url}
+                          className={`clinic-card ${isCurrent ? 'current' : ''}`}
+                          target={isCurrent ? undefined : "_blank"}
+                          rel={isCurrent ? undefined : "noopener noreferrer"}
+                          title={isCurrent ? `Aktualna strona: ${clinic.name}` : `${clinic.name} - ${clinic.city}`}
+                        >
+                          {clinic.logo?.asset?.url && (
+                            <img 
+                              src={clinic.logo.asset.url} 
+                              alt={`Logo ${clinic.name}`}
+                              className="clinic-logo"
+                            />
+                          )}
+                          <div className="clinic-info">
+                            <h5 className="clinic-name">{clinic.name}</h5>
+                            <p className="clinic-city">{clinic.city}</p>
+                            {clinic.address && <p className="clinic-address">{clinic.address}</p>}
+                            {clinic.phone && <p className="clinic-phone">{clinic.phone}</p>}
+                          </div>
+                        </CardTag>
+                      )
+                    })}
                 </div>
-                <span>{global.email}</span>
+                </div>
+            )}
+            <p className="copyright">Ośrodek Zdrowia Medicus &copy; {new Date().getFullYear()}. Wszelkie prawa zastrzeżone.</p>
+            <p className="privacyPolicy">
+              <Link to="/polityka-prywatnosci" className="link">Polityka prywatności</Link>
+            </p>
+            <p className="projectBy">
+              <span>Projekt i realizacja:</span>
+              <a href="https://bartnikstudio.pl/" aria-label="Bartnik" target="_blank" rel="noreferrer noopener">
+                <BartnikLogo />
               </a>
+              <span aria-hidden="true" className="separator">x</span>
+              <a href="https://kryptonum.eu/pl" aria-label="Agencja interaktywna Kryptonum">
+                <FooterKryptonumLogo />
+              </a>
+            </p>
             </div>
-            <Social as="div" />
-          </div>
-          <div className="text">
-            <h3>{footer.heading}</h3>
-            <p>{footer.paragraph}</p>
-          </div>
-          <Button variant="light" theme={footer.cta.theme} to={footer.cta.href}>{footer.cta.text}</Button>
-          <p className="copyright">Ośrodek Zdrowia w Turośni Kościelnej &copy; {new Date().getFullYear()}. Wszelkie prawa zastrzeżone.</p>
-          <p className="privacyPolicy">
-            <Link to="/polityka-prywatnosci" className="link">Polityka prywatności</Link>
-          </p>
-          <p className="projectBy">
-            <span>Projekt i realizacja:</span>
-            <a href="https://bartnikstudio.pl/" aria-label="Bartnik" target="_blank" rel="noreferrer noopener">
-              <BartnikLogo />
-            </a>
-            <span aria-hidden="true" className="separator">x</span>
-            <a href="https://kryptonum.eu/pl" aria-label="Agencja interaktywna Kryptonum">
-              <FooterKryptonumLogo />
-            </a>
-          </p>
-        </div>
       </FooterWrapper>
     </>
   );
@@ -123,7 +191,18 @@ const FooterWrapper = styled.footer`
     justify-content: space-between;
     align-items: center;
     gap: 32px 16px;
+    grid-area: logo;
   }
+
+  .text {
+    grid-area: text;
+  }
+
+  .cta {
+    grid-area: cta;
+    align-self: start;
+  }
+
   .contact {
     display: grid;
     grid-template-columns: auto auto;
@@ -142,6 +221,9 @@ const FooterWrapper = styled.footer`
         height: 48px;
         svg {
           z-index: 2;
+          path {
+            fill: var(--primary-500);
+          }
         }
         &::before {
           content: '';
@@ -151,7 +233,7 @@ const FooterWrapper = styled.footer`
           width: 100%;
           height: 100%;
           border-radius: 50%;
-          background-color: var(--secondary-500);
+          background-color: #fff;
           transition: transform .4s var(--easing);
         }
       }
@@ -160,10 +242,121 @@ const FooterWrapper = styled.footer`
       }
     }
   }
+  .footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 64px;
+    margin-bottom: ${Clamp(48, 48, 62, 'px')};
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "logo logo"
+      "text text"
+      "cta network"
+      "copyright network"
+      "privacyPolicy network"
+      "projectBy network";
+    gap: 0 32px;
+  }
+
+  .network-clinics {
+    grid-area: network;
+    max-width: 620px;
+    justify-self: end;
+
+    .network-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+ 
+  .footer-bottom {
+    padding-top: ${Clamp(32, 36, 42, 'px')};
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .network-heading {
+    font-size: ${Clamp(12, 13, 14)};
+    font-weight: 500;
+    margin-bottom: ${Clamp(16, 18, 20, 'px')};
+    text-align: left;
+    opacity: 0.75;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .network-grid {
+    display: flex;
+    flex-direction: column;
+    gap: ${Clamp(12, 14, 16, 'px')};
+  }
+  .clinic-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    padding: ${Clamp(14, 16, 18, 'px')};
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+    transition: all 0.3s var(--easing);
+    cursor: pointer;
+    
+    &:not(.current):hover {
+      background-color: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    &.current {
+      opacity: 0.5;
+      cursor: default;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-color: rgba(255, 255, 255, 0.05);
+      pointer-events: none;
+    }
+  }
+  .clinic-logo {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    opacity: 0.9;
+  }
+  .clinic-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .clinic-name {
+    font-size: ${Clamp(13, 14, 15)};
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+  }
+  .clinic-city {
+    font-size: ${Clamp(11, 12, 13)};
+    opacity: 0.85;
+    margin: 0;
+    line-height: 1.3;
+  }
+  .clinic-address,
+  .clinic-phone {
+    font-size: ${Clamp(10, 11, 12)};
+    opacity: 0.65;
+    margin: 0;
+    line-height: 1.4;
+  }
   .copyright {
-    margin-top: ${Clamp(48, 48, 62, 'px')};
+    margin-top: 0;
+    grid-area: copyright;
+    align-self: end;
   }
   .projectBy {
+    grid-area: projectBy;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -177,12 +370,45 @@ const FooterWrapper = styled.footer`
   }
   .privacyPolicy {
     margin: 0.75rem 0 2.5rem;
+    grid-area: privacyPolicy;
+    align-self: start;
     a {
       font-size: 0.875rem;
       color: inherit;
     }
   }
+  
+  /* Responsive breakpoints */
+  @media (max-width: 1199px){
+    .footer-main {
+      gap: 48px;
+    }
+    .footer-right {
+      max-width: 380px;
+    }
+
+    .network-clinics {
+      max-width: 100%;
+      justify-self: end;
+
+      .network-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+  }
+
+
+  
   @media (max-width: 999px){
+    .footer-main {
+      flex-direction: column;
+      gap: 48px;
+    }
+    .footer-right {
+      max-width: 100%;
+    }
     .column {
       grid-template-columns: 1fr;
     }
@@ -198,6 +424,90 @@ const FooterWrapper = styled.footer`
         }
       }
     }
+  }
+
+  @media (max-width: 930px){
+  .footer-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo"
+      "text"
+      "cta"
+      "copyright"
+      "privacyPolicy"
+          "network"
+      "projectBy";
+
+      .
+    .logo {
+    
+    }
+    .text {
+    }
+    .cta {
+    margin-bottom: 24px;
+      justify-self: start;
+    }
+
+    .privacyPolicy {
+    margin-bottom: 16px;
+    }
+
+    .network-clinics {
+      justify-self: start;
+      margin-bottom: 24px;
+
+      .network-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      }
+    }
+  }
+  }
+  
+  @media (max-width: 640px){
+    .footer-main {
+      gap: 32px;
+    }
+    .footer-bottom {
+      padding-top: ${Clamp(24, 28, 32, 'px')};
+    }
+    .network-heading {
+      font-size: 12px;
+    }
+    .network-grid {
+      gap: 10px;
+    }
+    .clinic-card {
+      gap: 12px;
+      padding: 12px;
+    }
+    .clinic-logo {
+      width: 48px;
+      height: 48px;
+    }
+    .clinic-name {
+      font-size: 12px;
+    }
+    .clinic-city {
+      font-size: 11px;
+    }
+    .clinic-address,
+    .clinic-phone {
+      font-size: 10px;
+    }
+
+    .footer-grid {
+    .network-clinics {
+      width: 100%;
+      .network-grid {
+
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+}}
   }
 `
 

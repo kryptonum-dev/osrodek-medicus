@@ -25,7 +25,7 @@ const CtaTiles = ({ heading, paragraph, img, list }) => {
       {list?.length > 0 && (
         <div className="tiles">
           {list.map((item, i) => (
-            <div className="item" key={i}>
+            <div className="item dark" key={i}>
               <GatsbyImage
                 image={item.img.asset.gatsbyImageData}
                 alt={item.img.asset.altText || ''}
@@ -61,7 +61,7 @@ const Wrapper = styled.section`
     align-items: center;
     max-width: 1280px;
     h2 {
-      color: var(--primary-300);
+      color: var(--primary-500);
       margin-bottom: 24px;
     }
     .paragraph {
