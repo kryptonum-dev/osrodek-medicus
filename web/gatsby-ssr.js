@@ -13,7 +13,7 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       as="font"
       type="font/woff2"
       crossOrigin="anonymous"
-      key="interFont"
+      key="manropeRegular"
     />,
     <link
       rel="preload"
@@ -21,7 +21,7 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       as="font"
       type="font/woff2"
       crossOrigin="anonymous"
-      key="interFont"
+      key="manropeSemiBold"
     />,
     <link
       rel="preload"
@@ -29,7 +29,7 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       as="font"
       type="font/woff2"
       crossOrigin="anonymous"
-      key="interFont"
+      key="manropeBold"
     />,
   ])
 }

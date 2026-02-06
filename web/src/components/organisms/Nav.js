@@ -107,7 +107,7 @@ const Nav = () => {
                       <span className="short">{link.shortLabel}</span>
                     </Link>
                   ) : (
-                    <a href={link.href} title={link.title} rel="noreferrer">
+                    <a href={link.href} title={link.title} target="_blank" rel="noreferrer">
                       <span className="full">{link.label}</span>
                       <span className="short">{link.shortLabel}</span>
                     </a>
