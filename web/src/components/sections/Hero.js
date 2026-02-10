@@ -12,7 +12,8 @@ const Hero = ({
     hero_Img,
     hero_Cta,
   },
-  version="dark"
+  version="dark",
+  showShape=true,
 }) => {
   return (
     <Wrapper className={version}>
@@ -32,7 +33,7 @@ const Hero = ({
             ))
           )}
         </header>
-        <ImageDecorative data={hero_Img} loading="eager" />
+        <ImageDecorative data={hero_Img} loading="eager" showShape={showShape} />
       </div>
     </Wrapper>
   );
@@ -58,7 +59,7 @@ const Wrapper = styled.section`
   header {
     h2 {
       font-weight: 400;
-      font-size: ${Clamp(24, 24, 32)};
+      font-size: ${Clamp(20, 22, 26)};
       margin-bottom: ${Clamp(24, 24, 48, 'px')};
     }
   }

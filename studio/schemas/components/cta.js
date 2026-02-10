@@ -27,11 +27,11 @@ export default {
       title: 'Link',
       name: 'href',
       type: 'string',
-      description: 'Link relatywny lub absolutny (z https://)',
+      description: 'Link relatywny (/strona), absolutny (https://...), kotwica (#sekcja) lub mailto: (mailto:adres@email.pl)',
       validation: Rule =>
         Rule.custom(value => {
-          if (value && !value.startsWith('/') && !value.startsWith('https://')) {
-            return 'Nieprawidłowy adres URL.';
+          if (value && !value.startsWith('/') && !value.startsWith('https://') && !value.startsWith('#') && !value.startsWith('mailto:')) {
+            return 'Nieprawidłowy adres URL. Dozwolone: /relatywny, https://..., #kotwica, mailto:...';
           }
           return true;
         }),
