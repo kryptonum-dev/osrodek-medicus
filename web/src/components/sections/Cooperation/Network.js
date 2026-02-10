@@ -23,7 +23,7 @@ const Network = ({ heading, paragraph, clinics }) => {
   const activeClinics = clinics?.filter(c => c.isActive) || [];
 
   return (
-    <Wrapper>
+    <Wrapper className="dark">
       <div className="max-width">
         <header>
           <Heading type="h2" className="heading">{heading}</Heading>
