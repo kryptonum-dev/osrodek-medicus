@@ -37,3 +37,23 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
 export const wrapPageElement = ({ props, element }) => {
   return <Layout {...props}>{element}</Layout>
 }
+
+export const onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
+  const headComponents = getHeadComponents();
+  const hasTitleTag = headComponents.some(component => component?.type === "title");
+
+  if (hasTitleTag) return;
+
+  const ogTitleMeta = headComponents.find(component => (
+    component?.type === "meta"
+    && component?.props?.property === "og:title"
+    && component?.props?.content
+  ));
+
+  if (!ogTitleMeta) return;
+
+  replaceHeadComponents([
+    <title key="fallback-title">{ogTitleMeta.props.content}</title>,
+    ...headComponents,
+  ]);
+}

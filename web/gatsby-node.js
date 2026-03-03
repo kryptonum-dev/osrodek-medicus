@@ -2,6 +2,34 @@ const redirects = require("./redirects.json")
 const fs = require('fs')
 const path = require('path')
 
+const collectHtmlFiles = (directoryPath) => {
+  const entries = fs.readdirSync(directoryPath, { withFileTypes: true });
+
+  return entries.flatMap((entry) => {
+    const fullPath = path.join(directoryPath, entry.name);
+
+    if (entry.isDirectory()) {
+      return collectHtmlFiles(fullPath);
+    }
+
+    return entry.isFile() && fullPath.endsWith(".html") ? [fullPath] : [];
+  });
+};
+
+const ensureTitleTagFromOgTitle = (html) => {
+  if (/<head[^>]*>[\s\S]*?<title\b[^>]*>/i.test(html)) return html;
+
+  const ogTitleMatch = html.match(/<meta\s+[^>]*property=["']og:title["'][^>]*content=["']([^"']+)["'][^>]*>/i);
+  if (!ogTitleMatch?.[1]) return html;
+
+  const escapedTitle = ogTitleMatch[1]
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  return html.replace(/<head>/i, `<head><title>${escapedTitle}</title>`);
+};
+
 exports.onPostBuild = async () => {
   // Generate _redirects file in public/ directory
   // Netlify reads this file after build is complete
@@ -20,4 +48,21 @@ ${redirectLines.join('\n')}
   const publicDir = path.join(__dirname, 'public');
   fs.writeFileSync(path.join(publicDir, '_redirects'), redirectsContent);
   console.log(`✓ Generated _redirects file with ${redirects.length} redirects`);
+
+  // Gatsby occasionally emits head meta tags without a <title> tag.
+  // Ensure every generated HTML page has a title based on existing og:title.
+  const htmlFiles = collectHtmlFiles(publicDir);
+  let fixedFilesCount = 0;
+
+  htmlFiles.forEach((filePath) => {
+    const original = fs.readFileSync(filePath, "utf8");
+    const updated = ensureTitleTagFromOgTitle(original);
+
+    if (updated !== original) {
+      fs.writeFileSync(filePath, updated);
+      fixedFilesCount += 1;
+    }
+  });
+
+  console.log(`✓ Ensured <title> tags in ${fixedFilesCount} HTML files`);
 };

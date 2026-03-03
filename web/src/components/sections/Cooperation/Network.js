@@ -54,10 +54,27 @@ const Network = ({ heading, paragraph, clinics }) => {
                   )}
                   <div className="clinic-info">
                     <h3 className="clinic-name">{clinic.name}</h3>
-                    <p className="clinic-city">{clinic.city}</p>
-                    {clinic.address && <p className="clinic-address">{clinic.address}</p>}
-                    {clinic.phone && <p className="clinic-phone">{clinic.phone}</p>}
-                    {clinic.email && <p className="clinic-email">{clinic.email}</p>}
+                    {(() => {
+                      const locations = clinic.locations || [];
+                      const cities = Array.from(
+                        new Set(locations.map(l => l?.city).filter(Boolean))
+                      ).join(', ');
+                      return (
+                        <>
+                          {cities && <p className="clinic-city">{cities}</p>}
+                          {locations.map((loc, li) => (
+                            <div key={li} className="clinic-location">
+                              {locations.length > 1 && loc.city && (
+                                <p className="clinic-location-name">{loc.city}</p>
+                              )}
+                              {loc.address && <p className="clinic-address">{loc.address}</p>}
+                              {loc.phone && <p className="clinic-phone">{loc.phone}</p>}
+                              {loc.email && <p className="clinic-email">{loc.email}</p>}
+                            </div>
+                          ))}
+                        </>
+                      );
+                    })()}
                   </div>
                   {isCurrent && <span className="current-badge">Aktualnie przeglądasz</span>}
                 </Tag>
@@ -130,6 +147,25 @@ const Wrapper = styled.section`
   }
   .clinic-city {
     font-size: ${Clamp(14, 15, 16)};
+    opacity: 0.85;
+  }
+  .clinic-location {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    &:first-of-type {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+  }
+  .clinic-location-name {
+    font-size: ${Clamp(11, 12, 13)};
+    font-weight: 600;
     opacity: 0.85;
   }
   .clinic-address,

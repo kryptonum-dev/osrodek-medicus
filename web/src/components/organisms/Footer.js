@@ -28,10 +28,13 @@ const Footer = () => {
         }
         networkClinics {
           name
-          city
-          address
-          phone
-          email
+          shortName
+          locations {
+            city
+            address
+            phone
+            email
+          }
           url
           logo {
             asset {
@@ -101,27 +104,39 @@ const Footer = () => {
                       const isCurrent = isCurrentSite(clinic.url)
                       const CardTag = isCurrent ? 'div' : 'a'
                       
+                      const locations = clinic.locations || [];
+                      const cities = Array.from(
+                        new Set(locations.map(l => l?.city).filter(Boolean))
+                      ).join(', ');
+
                       return (
-                        <CardTag 
+                        <CardTag
                           key={index}
                           href={isCurrent ? undefined : clinic.url}
                           className={`clinic-card ${isCurrent ? 'current' : ''}`}
                           target={isCurrent ? undefined : "_blank"}
                           rel={isCurrent ? undefined : "noopener noreferrer"}
-                          title={isCurrent ? `Aktualna strona: ${clinic.name}` : `${clinic.name} - ${clinic.city}`}
+                          title={isCurrent ? `Aktualna strona: ${clinic.name}` : clinic.name}
                         >
                           {clinic.logo?.asset?.url && (
-                            <img 
-                              src={clinic.logo.asset.url} 
+                            <img
+                              src={clinic.logo.asset.url}
                               alt={`Logo ${clinic.name}`}
                               className="clinic-logo"
                             />
                           )}
                           <div className="clinic-info">
                             <h5 className="clinic-name">{clinic.name}</h5>
-                            <p className="clinic-city">{clinic.city}</p>
-                            {clinic.address && <p className="clinic-address">{clinic.address}</p>}
-                            {clinic.phone && <p className="clinic-phone">{clinic.phone}</p>}
+                            {cities && <p className="clinic-city">{cities}</p>}
+                            {locations.map((loc, li) => (
+                              <div key={li} className="clinic-location">
+                                {locations.length > 1 && loc.city && (
+                                  <p className="clinic-location-name">{loc.city}</p>
+                                )}
+                                {loc.phone && <p className="clinic-phone">{loc.phone}</p>}
+                                {loc.email && <p className="clinic-email">{loc.email}</p>}
+                              </div>
+                            ))}
                           </div>
                         </CardTag>
                       )
@@ -343,8 +358,29 @@ const FooterWrapper = styled.footer`
     margin: 0;
     line-height: 1.3;
   }
+  .clinic-location {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-top: 4px;
+    padding-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    &:first-of-type {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 2px;
+    }
+  }
+  .clinic-location-name {
+    font-size: ${Clamp(10, 11, 12)};
+    font-weight: 600;
+    opacity: 0.8;
+    margin: 0;
+    line-height: 1.4;
+  }
   .clinic-address,
-  .clinic-phone {
+  .clinic-phone,
+  .clinic-email {
     font-size: ${Clamp(10, 11, 12)};
     opacity: 0.65;
     margin: 0;

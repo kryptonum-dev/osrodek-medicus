@@ -152,10 +152,13 @@ export const query = graphql`
     global: sanityGlobal {
       networkClinics {
         name
-        city
-        address
-        phone
-        email
+        shortName
+        locations {
+          city
+          address
+          phone
+          email
+        }
         url
         logo {
           asset {

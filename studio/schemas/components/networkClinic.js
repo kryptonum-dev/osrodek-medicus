@@ -6,50 +6,42 @@ export default {
     {
       name: 'name',
       type: 'string',
-      title: 'Nazwa placówki',
-      description: 'Np. "Medicus", "Ośrodek TK", "Alma-Med"',
+      title: 'Pełna nazwa placówki',
+      description: 'Np. "Ośrodek Zdrowia Medicus", "Ośrodek Zdrowia", "Alma Med"',
       validation: Rule => Rule.required(),
     },
     {
-      name: 'city',
+      name: 'shortName',
       type: 'string',
-      title: 'Miasto',
-      description: 'Np. "Białystok", "Turośń Kościelna", "Bielsk Podlaski"',
+      title: 'Krótka nazwa',
+      description: 'Używana w zwężonych widokach, np. "Medicus", "Ośrodek Zdrowia", "Alma Med".',
       validation: Rule => Rule.required(),
     },
     {
-      name: 'address',
-      type: 'string',
-      title: 'Adres',
-      description: 'Pełny adres, np. "ul. Świętego Jerzego 22, 15-349 Białystok"',
-    },
-    {
-      name: 'phone',
-      type: 'string',
-      title: 'Telefon',
-      description: 'Np. "85 745 21 52"',
-    },
-    {
-      name: 'email',
-      type: 'string',
-      title: 'Email',
-      description: 'Adres email placówki',
+      name: 'locations',
+      type: 'array',
+      title: 'Lokalizacje',
+      description: 'Dla jednej marki możesz podać wiele lokalizacji (np. Turośń Kościelna i Suraż).',
+      of: [{ type: 'networkLocation' }],
     },
     {
       name: 'logo',
       type: 'image',
       title: 'Logo',
       description: 'Logo placówki (SVG lub PNG z przezroczystym tłem)',
-      validation: Rule => Rule.required(),
     },
     {
       name: 'url',
-      type: 'url',
+      type: 'string',
       title: 'Adres strony',
-      description: 'URL do strony internetowej placówki, np. "https://osrodek-medicus.pl"',
-      validation: Rule => Rule.required().uri({
-        scheme: ['http', 'https']
-      }),
+      description: 'Pełny URL (https://...) lub "/" dla aktualnej strony.',
+      validation: Rule =>
+        Rule.required().custom(value => {
+          if (!value) return true
+          if (value === '/') return true
+          if (value.startsWith('https://') || value.startsWith('http://')) return true
+          return 'Podaj adres zaczynający się od https://, http:// lub "/"'
+        }),
     },
     {
       name: 'isActive',
@@ -62,8 +54,19 @@ export default {
   preview: {
     select: {
       title: 'name',
-      subtitle: 'city',
+      locations: 'locations',
       media: 'logo',
+    },
+    prepare({ title, locations, media }) {
+      const cities = (locations || [])
+        .map(loc => loc?.city)
+        .filter(Boolean)
+      const uniqueCities = Array.from(new Set(cities))
+      return {
+        title,
+        subtitle: uniqueCities.join(', '),
+        media,
+      }
     },
   },
 }

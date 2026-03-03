@@ -19,7 +19,10 @@ const Nav = () => {
         }
         networkClinics {
           name
-          city
+          shortName
+          locations {
+            city
+          }
           url
           isActive
         }
@@ -43,36 +46,37 @@ const Nav = () => {
   const handleNavToggle = () => setNavOpened(!navOpened);
   const handleLink = () => setNavOpened(false);
 
-  // Transform Sanity data to match expected format
   const networkLinks = React.useMemo(() => {
     if (!global.networkClinics) return [];
-    
+
     return global.networkClinics
       .filter(clinic => clinic.isActive)
       .map((clinic) => {
-        // Extract hostname from URL for hostMatch
+        const cities = Array.from(
+          new Set((clinic.locations || []).map(l => l?.city).filter(Boolean))
+        );
+        const cityLabel = cities.join(', ');
+        const fullLabel = cityLabel ? `${clinic.name} (${cityLabel})` : clinic.name;
+
         let hostMatch = [];
         try {
           const url = new URL(clinic.url);
           hostMatch = [url.hostname];
-          
-          // Add localhost for the first clinic (assumed to be current site)
-          if (clinic.url === '/' || clinic.url.includes('osrodek-medicus')) {
+          if (clinic.url.includes('osrodek-medicus')) {
             hostMatch.push('osrodek-medicus.pl', 'osrodek-medicus.netlify.app', 'localhost');
           }
         } catch {
-          // If URL is relative (like '/'), it's the current site
           if (clinic.url === '/') {
             hostMatch = ['osrodek-medicus.pl', 'osrodek-medicus.netlify.app', 'localhost'];
           }
         }
-        
+
         return {
           id: clinic.name.toLowerCase().replace(/\s+/g, '-'),
-          label: `${clinic.city} (${clinic.name})`,
-          shortLabel: clinic.name,
+          label: fullLabel,
+          shortLabel: clinic.shortName || clinic.name,
           href: clinic.url,
-          title: `${clinic.name} - ${clinic.city}`,
+          title: fullLabel,
           hostMatch,
         };
       });
