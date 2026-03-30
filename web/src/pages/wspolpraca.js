@@ -36,7 +36,7 @@ const CooperationPage = ({
     global,
   }
 }) => {
-  const [showHeroShape, setShowHeroShape] = React.useState(true);
+  const [showHeroShape, setShowHeroShape] = React.useState(false);
 
   React.useEffect(() => {
     let isMounted = true;
