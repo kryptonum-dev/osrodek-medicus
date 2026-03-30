@@ -16,7 +16,7 @@ const Hero = ({
   showShape=true,
 }) => {
   return (
-    <Wrapper className={version}>
+    <Wrapper className={`${version} ${showShape ? '' : 'plain-image'}`}>
       <div className="max-width">
         <header>
           <Heading className="heading">{hero_Heading}</Heading>
@@ -52,6 +52,11 @@ const Wrapper = styled.section`
     }
     gap: ${Clamp(32, 32, 48, 'px')} 32px;
     align-items: center;
+  }
+  &.plain-image {
+    > .max-width {
+      gap: ${Clamp(42, 42, 64, 'px')} 44px;
+    }
   }
   position: relative;
   overflow: hidden;
