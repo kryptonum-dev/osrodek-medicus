@@ -36,6 +36,27 @@ const CooperationPage = ({
     global,
   }
 }) => {
+  const [showHeroShape, setShowHeroShape] = React.useState(true);
+
+  React.useEffect(() => {
+    let isMounted = true;
+
+    fetch('/api/cooperation-hero-shape')
+      .then((response) => response.json())
+      .then((data) => {
+        if (!isMounted) {
+          return;
+        }
+
+        setShowHeroShape(!data?.disableShape);
+      })
+      .catch(() => {});
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <>
       <Hero
@@ -45,7 +66,7 @@ const CooperationPage = ({
           hero_Img,
           hero_Cta,
         }}
-        showShape={true}
+        showShape={showHeroShape}
       />
       {intro_Heading && (
         <Intro

@@ -17,6 +17,27 @@ const ContactPage = ({
     },
   }
 }) => {
+  const [formSubjects, setFormSubjects] = React.useState();
+
+  React.useEffect(() => {
+    let isMounted = true;
+
+    fetch('/api/contact-subjects')
+      .then((response) => response.json())
+      .then((data) => {
+        if (!isMounted || !Array.isArray(data?.subjects) || data.subjects.length === 0) {
+          return;
+        }
+
+        setFormSubjects(data.subjects);
+      })
+      .catch(() => {});
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <>
       <Hero
@@ -26,7 +47,7 @@ const ContactPage = ({
           hero_Img,
         }}
       />
-      <Form heading={form_Heading} icon={form_Img} />
+      <Form heading={form_Heading} icon={form_Img} formProps={{ subjects: formSubjects }} />
       <Faq data={faqSection} />
     </>
   )

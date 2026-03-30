@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { emailRegex, phoneRegex } from "../../constants/regex";
+import { defaultContactSubjects } from "../../constants/contactSubjects";
 import Button from "../atoms/Button";
 import FormCheckbox from "../moleculas/FormCheckbox";
 import FormInput from "../moleculas/FormInput";
@@ -11,17 +12,6 @@ import { Error } from "../atoms/Icons";
 import Loader from "../atoms/Loader";
 
 const statusAnimationDuration = 300;
-
-const defaultSubjects = [
-  'Chcę zapisać się do przychodni',
-  'Chcę umówić wizytę u lekarza rodzinnego (NFZ)',
-  'Chcę umówić wizytę prywatną',
-  'Chcę skorzystać z porady dietetyka',
-  'Potrzebuję przedłużenia recepty',
-  'Chcę skorzystać z Opieki Koordynowanej',
-  'Nie mogę znaleźć odpowiedzi na nurtujące mnie pytanie',
-  'Inny temat',
-];
 
 const ContactForm = ({ endpoint = '/api/contact', subjects, targetEmail } = {}) => {
   const {
@@ -125,7 +115,7 @@ const ContactForm = ({ endpoint = '/api/contact', subjects, targetEmail } = {}) 
       <Select
         label="Wybierz temat"
         register={register('subject', { required: true })}
-        options={subjects || defaultSubjects}
+        options={subjects || defaultContactSubjects}
         error="Temat nie został wybrany"
         errors={errors}
       />

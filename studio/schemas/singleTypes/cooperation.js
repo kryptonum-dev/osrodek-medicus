@@ -24,6 +24,14 @@ export default {
       group: 'hero',
     },
     {
+      name: 'hero_DisableShape',
+      type: 'boolean',
+      title: 'Hero - Ukryj dekoracyjny kształt pod zdjęciem',
+      description: 'Włącz tę opcję, jeśli zdjęcie ma być wyświetlane bez dekoracyjnego kształtu w tle. Gdy pole jest puste lub wyłączone, strona używa standardowego wariantu z kształtem.',
+      initialValue: false,
+      group: 'hero',
+    },
+    {
       name: 'hero_Cta',
       type: 'array',
       of: [{ type: 'cta' }],

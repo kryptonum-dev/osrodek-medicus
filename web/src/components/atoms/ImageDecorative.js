@@ -5,7 +5,7 @@ import styled from "styled-components";
 const ImageDecorative = ({ data, loading="lazy", showShape=true }) => {
   if (!data?.asset?.gatsbyImageData) return null;
   return (
-    <Wrapper className="imageDecorative">
+    <Wrapper className={`imageDecorative ${showShape ? '' : 'shape-disabled'}`}>
       {showShape && <Shape />}
       <GatsbyImage
         image={data.asset.gatsbyImageData}
@@ -25,12 +25,30 @@ const Wrapper = styled.div`
   .imageDecorativeImg {
     filter: drop-shadow(8px -3px 8px rgb(14 36 40 / 3%));
   }
+  &.shape-disabled {
+    margin-left: 0;
+    margin-bottom: 0;
+    .imageDecorativeImg {
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .imageDecorativeImg img,
+    .imageDecorativeImg picture {
+      border-radius: 16px;
+    }
+  }
   .shape {
     position: absolute;
     width: 100%;
     height: 100%;
     left: -10%;
     bottom: -5%;
+  }
+  @media (max-width: 1098px) {
+    &.shape-disabled {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 `
 

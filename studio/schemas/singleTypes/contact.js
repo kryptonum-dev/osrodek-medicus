@@ -35,6 +35,21 @@ export default {
       group: 'form',
     },
     {
+      name: 'form_Subjects',
+      type: 'array',
+      title: 'Formularz - Predefiniowane tematy',
+      description: 'Elementy wyswietlane w polu wyboru tematu w formularzu kontaktowym. Jesli lista pozostanie pusta, strona uzyje domyslnych tematow z kodu.',
+      of: [
+        {
+          type: 'string',
+        }
+      ],
+      options: {
+        sortable: true,
+      },
+      group: 'form',
+    },
+    {
       name: 'faqSection',
       type: 'faqSection',
       title: 'Sekcja z FAQ',

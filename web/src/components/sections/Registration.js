@@ -22,7 +22,7 @@ const Registration = ({
   ...props
 }) => {
   return (
-    <Wrapper className="max-width" {...props}>
+    <Wrapper className="max-width dark" {...props}>
       <header>
         <Heading type="h2">{registration_Heading}</Heading>
         <Markdown className="paragraph">{registration_Paragraph}</Markdown>
