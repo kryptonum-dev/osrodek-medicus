@@ -150,11 +150,7 @@ const Footer = () => {
             </p>
             <p className="projectBy">
               <span>Projekt i realizacja:</span>
-              <a href="https://bartnikstudio.pl/" aria-label="Bartnik" target="_blank" rel="noreferrer noopener">
-                <BartnikLogo />
-              </a>
-              <span aria-hidden="true" className="separator">x</span>
-              <a href="https://kryptonum.eu/pl" aria-label="Agencja interaktywna Kryptonum">
+                    <a href="https://kryptonum.eu/pl" aria-label="Agencja interaktywna Kryptonum">
                 <FooterKryptonumLogo />
               </a>
             </p>
